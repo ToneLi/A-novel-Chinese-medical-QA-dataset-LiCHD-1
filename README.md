@@ -11,11 +11,17 @@ To create LiCHD-1, we acquired it from a public Chinese medical forum (https://w
 By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in Table 1, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
 
 |wrong| ---| ----|
+
 || question sample| type |
+
 |1| 胸闷气短感觉憋的上用力呼气胸痛| SE |
+
 |2|我这是痔疮还是脱肛？我这是痔疮还是脱肛？| SR |
+
 |3|发病持续时间：一年以上| WQ |
+
 |4|金锁固精丸，，可以治疗早泄吗，，，，| PE|
+
 |5| 中医能治疗截瘫吗（h5class=""f12f14mt20""）| WN|
 
 
