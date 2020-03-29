@@ -48,6 +48,8 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 |The size of Testset|82413 |
 |The size of Devset|81661 |
 
+$$ MRR=\frac{1}{Q}\sum_{i=1}^{|Q|} \frac{1}{rankA_i}$$
+
 
 ## Reference
 1: ShengZhang, XinZhang, HuiWang, LixiangGuo, andShanshanLiu. [n.d.]. MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
