@@ -9,7 +9,7 @@ Data is the soul of model, making a clean dataset needs a lot of time and manpow
 To create LiCHD-1, we acquired it from a public Chinese medical forum (https://www.dxy.com/). We collected all question answer pairs based on 1228 diseases. Otherwise, this dataset is an encyclopedic QA dataset for common diseases in our live. It includes pathogeny, hazard, medication, and some points we should pay attention in daily life.
 ### Data Cleaning
 By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in Table 1, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
-
+|wrong|------|
 | Question Sample | Type|
 | ------ | ------ |
 | 胸闷气短感觉憋的上用力呼气胸痛 | SE |
