@@ -29,7 +29,7 @@ Note: Five typical noises in public Chinese medical question answer. SE refers t
 ### Dataset Generation
 We follow the rules about existing QA dataset, such as HealthQA, cMedQA, etc. A QA dataset should not only have positive QA pairs, but also need some negative QA pairs. This form can help model have enough discriminative power to give points to each answer that relate to their question and improve robustness. Hence, we sampled some negative data samples of QA pairs, for each question, the negative answers are chosen by below ways:
 
-* <font color=blue size=3>Irrelevant negative answers:</font> In order to make the model have a high level of discrimination. We sample some very low relevance to question. In our dataset, the QA pairs are divided by disease, so a question's negative answer is about other disease.
+* <font color=#7FFF00 size=3>Irrelevant negative answers:</font> In order to make the model have a high level of discrimination. We sample some very low relevance to question. In our dataset, the QA pairs are divided by disease, so a question's negative answer is about other disease.
 	
 	
 * Partially relevant answers: these answers and positive answer have the same disease, but they have not the same question. Otherwise, we also consider: (1) overlapping words; (2) question and answer have the same topic, but they are not positive QA pair. [3] and [4] used such samples in the training progress, it make model have a high discriminative power, as compared to the model use randomly choose negitive sample.
