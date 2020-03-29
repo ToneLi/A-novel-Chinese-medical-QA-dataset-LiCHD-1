@@ -6,6 +6,6 @@ Data is the soul of model, making a clean dataset needs a lot of time and manpow
 
 
 ## Reference
-1: ShengZhang,XinZhang,HuiWang,LixiangGuo,andShanshanLiu.[n.d.].MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
+1: ShengZhang, XinZhang, HuiWang, LixiangGuo, andShanshanLiu. [n.d.]. MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
 
-2:YuanheTian,WeichengMa,FeiXia,andYanSong.2019. ChiMed:AChinese Medical Corpus for Question Answering.In Proceedings of the 18th BioNLP Workshop and Shared Task.Association for Computational Linguistics,Florence,Italy, 250–260. https://doi.org/10.18653/v1/W19-5027 
+2:YuanheTian, WeichengMa, FeiXia, andYanSong. 2019. ChiMed:AChinese Medical Corpus for Question Answering.In Proceedings of the 18th BioNLP Workshop and Shared Task.Association for Computational Linguistics,Florence,Italy, 250–260. https://doi.org/10.18653/v1/W19-5027 
