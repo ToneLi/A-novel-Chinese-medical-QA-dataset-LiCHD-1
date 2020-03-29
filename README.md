@@ -5,7 +5,7 @@ code: 8guh. If you use this data, please cite the source about this data: https:
 
 Data is the soul of model, making a clean dataset needs a lot of time and manpower, but it is worthy. The investigation discovered that there are few of datasets about Chinese medical QA, [1] proposed the first public Chinese medical QA dataset, it is called [cMedQA2](https://github.com/zhangsheng93/cMedQA2). In 2017, the authors released cMedQA1. cMedQA2 is an enhanced version. In cMedQA2, it totally has 108000 questions and 203569 answers. the content in this data is mainly about disease diagnosis. The patients use a sentence to describe their symptom, and then the doctors give the relevent solution. But there are many noises in cMedQA2, we have summarized five main noises in Table1. [2] created a Chinese medical corpus ChiMed in 2019, but it isn't released. It has 46731 questions and 91416 answers. So, based on above problems, we constructed a less noise and public Chinese health question answering dataset, it mainly about the common sense of disease. In the last, 6 models are contrasted based on this dataset by toolkit MatchZoo.
 
-## Chinese Health dataset
+## Chinese Health Dataset
 ### Dataset's Source
 To create LiCHD-1, we acquired it from a public Chinese medical forum (https://www.dxy.com/). We collected all question answer pairs based on 1228 diseases. Otherwise, this dataset is an encyclopedic QA dataset for common diseases in our live. It includes pathogeny, hazard, medication, and some points we should pay attention in daily life.
 ### Data Cleaning
