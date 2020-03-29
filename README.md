@@ -9,7 +9,7 @@ Data is the soul of model, making a clean dataset needs a lot of time and manpow
 ### Dataset's Source
 To create LiCHD-1, we acquired it from a public Chinese medical forum (https://www.dxy.com/). We collected all question answer pairs based on 1228 diseases. Otherwise, this dataset is an encyclopedic QA dataset for common diseases in our live. It includes pathogeny, hazard, medication, and some points we should pay attention in daily life.
 ### Data Cleaning
-By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in the below, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
+By analysing the public Chinese medical QA ( such as cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these datasets. We summaried five typical noises in the below, top half refers to wrong question samples, upper half refers to right question samples (after correction). It's difficult to correct these errors by using templates or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
 
 |wrong| Question Sample | Type|
 | ------ | ------ | ------ |
@@ -25,17 +25,17 @@ By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial da
 |4| 金锁固精丸可以治疗早泄吗？ | PE |
 |5|中医能治疗截瘫吗？|	WN|
 
-Note: Five typical noises in public Chinese medical question answer. SE refers to "segment error", SR refers to "sentence repetition", WQ refers to "wrong question" (delete it), PE refers to "punctuation error", WN refers to "web noise"
+Note: Five typical noises in public Chinese medical question answer. SE refers to "segment error", SR refers to "sentence repetition", WQ refers to "wrong question" (delete it), PE refers to "punctuation error", WN refers to "web noise".
 
 ### Dataset Generation
 We follow the rules about existing QA dataset, such as HealthQA, cMedQA, etc. A QA dataset should not only have positive QA pairs, but also need some negative QA pairs. This form can help model have enough discriminative power to give points to each answer that relate to their question and improve robustness. Hence, we sampled some negative data samples of QA pairs, for each question, the negative answers are chosen by below ways:
 
-* Irrelevant negative answers: In order to make the model have a high level of discrimination. We sample some very low relevance to question. In our dataset, the QA pairs are divided by disease, so a question's negative answer is about other disease.
+* Irrelevant negative answers: In order to make the model have a high level of discrimination. We sample some very low relevance to question. In our dataset, the QA pairs are divided by disease, so a question's irrelevant negative answer is about other disease.
 	
 	
-* Partially relevant answers: these answers and positive answer have the same disease, but they have not the same question. Otherwise, we also consider: (1) overlapping words; (2) question and answer have the same topic, but they are not positive QA pair. [3] and [4] used such samples in the training progress, it make model have a high discriminative power, as compared to the model use randomly choose negitive sample.
+* Partially relevant answers: these answers and positive answers have the same disease, but they do not have the same question. Otherwise, we also consider: (1) overlapping words; (2) question and answer have the same topic, but they are not positive QA pair. [3] and [4] used such samples in the training progress, it make model have a high discriminative power, as compared to the model use randomly choose negitive sample.
 
-To create a high-quality QA dataset, we hired seven workers, include: undergraduate, graduate, doctor, IT coder. These people are ensured to be very careful, patient and have good Chinese skills. They were intructed to clean the data and generate dataset. In the progress of generating dataset, works were ask to ensure one question at least one positive answer, the number of irrelevant negative answers and  partially relevant answers is greater than 0, one answer have 30 candicate questions (relevant, irrelevant, partially relevant). The statistics of the LiCHD-1 are shown in the below.
+To create a high-quality QA dataset, we hired five workers, include: undergraduate, graduate, doctor, IT coder. These people are ensured to be very careful, patient and have good Chinese skills. They were intructed to clean the data and generate dataset. In the progress of generating dataset, works were ask to ensure one question at least one positive answer, the number of irrelevant negative answers and  partially relevant answers is greater than 0, one answer have 30 candicate questions (relevant, irrelevant, partially relevant). The statistics of the LiCHD-1 are shown in the below,
 	     	
 | items | Count|
 | ------ | ------ |
