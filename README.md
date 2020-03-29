@@ -46,7 +46,7 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 |The size of Trainset|659862 |
 |The size of Testset|82413 |
 |The size of Devset|81661 |
-## Experiment
+## Experiments
 ### Compared Models
 
 * DRMM [5]: This model encodes the local interaction between query and document to Matching Histogram Mapping which is inputted in feed forward network. At last, the authors use cosine similarity to compute the relevant between query and document semantic representation. More specially, they use a term gating network to clarify the importance of the query term.
@@ -76,7 +76,7 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 
 
 
-## Reference
+## References
 1: ShengZhang, XinZhang, HuiWang, LixiangGuo, andShanshanLiu. [n.d.]. MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
 
 2: YuanheTian, WeichengMa, FeiXia, andYanSong. 2019. ChiMed:AChinese Medical Corpus for Question Answering.In Proceedings of the 18th BioNLP Workshop and Shared Task.Association for Computational Linguistics,Florence,Italy, 250–260. https://doi.org/10.18653/v1/W19-5027 
