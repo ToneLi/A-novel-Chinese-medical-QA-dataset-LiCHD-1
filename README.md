@@ -8,7 +8,7 @@ Data is the soul of model, making a clean dataset needs a lot of time and manpow
 ### Dataset's Source
 To create LiCHD-1, we acquired it from a public Chinese medical forum (https://www.dxy.com/). We collected all question answer pairs based on 1228 diseases. Otherwise, this dataset is an encyclopedic QA dataset for common diseases in our live. It includes pathogeny, hazard, medication, and some points we should pay attention in daily life.
 ### Data Cleaning
-By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in Table 1, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
+By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in the below, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
 
 |wrong| Question Sample | Type|
 | ------ | ------ | ------ |
@@ -34,8 +34,7 @@ We follow the rules about existing QA dataset, such as HealthQA, cMedQA, etc. A 
 	
 * Partially relevant answers: these answers and positive answer have the same disease, but they have not the same question. Otherwise, we also consider: (1) overlapping words; (2) question and answer have the same topic, but they are not positive QA pair. [3] and [4] used such samples in the training progress, it make model have a high discriminative power, as compared to the model use randomly choose negitive sample.
 
-To create a high-quality QA dataset, we hired seven workers, include: undergraduate, graduate, doctor, IT coder. These people are ensured to be very careful, patient and have good Chinese skills. They were intructed to clean the data and generate dataset. In the progress of generating dataset, works were ask to ensure one question at least one positive answer, the number of irrelevant negative answers and  partially relevant answers is greater than 0, one answer have 30 candicate questions (relevant, irrelevant, partially relevant). The statistics of the LiCHD-1 are shown in Table 2.
-
+To create a high-quality QA dataset, we hired seven workers, include: undergraduate, graduate, doctor, IT coder. These people are ensured to be very careful, patient and have good Chinese skills. They were intructed to clean the data and generate dataset. In the progress of generating dataset, works were ask to ensure one question at least one positive answer, the number of irrelevant negative answers and  partially relevant answers is greater than 0, one answer have 30 candicate questions (relevant, irrelevant, partially relevant). The statistics of the LiCHD-1 are shown in the below.
 	     	
 | items | Count|
 | ------ | ------ |
@@ -47,10 +46,24 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 |The size of Trainset|659862 |
 |The size of Testset|82413 |
 |The size of Devset|81661 |
+## Experiment
+### Compared Models
+
+* DRMM [5]: This model encodes the local interaction between query and document to Matching Histogram Mapping which is inputted in feed forward network. At last, the authors use cosine similarity to compute the relevant between query and document semantic representation. More specially, they use a term gating network to clarify the importance of the query term.
+
+* MV-LSTM [6]: This model uses Bi-LSTM to generate the sentence representation of question and answer, and then use a Interaction Tensor to compute the interaction information between them. This information finally passes a K-Max Pooling and MLP layer to compute the relevant score.
+
+* ANMM [7]: This model first uses a QA Matching Matrix to compute the interaction information bewteen question embedding and answer embedding. It also uses the attention mechanism, and then combines the interaction feature to compute the final relevent score. More specially, they adopted a value-shared weighting scheme to combine the different matching score.
+
+* DUET [8]:  This model uses two separate deep neural networks to represent the query and document, and then use Hadamard Product to compute the relevance feature. More specially, the anthors reuse CNN to learn the potential information of relevanve feature.
+
+* KNRM [9]: It was proposed in 2017, the anthors used Kernel Pooling layer to generate the ranking feather for the text, at last this method used soft-TF feature to compute the final similarity score. 
+
+* CONV-KNRM [10]: This method can complete n-gram soft matches, and use a cross-match layer to learn the interaction information between answer and question. the method of computing the relevent score is same as KNRM.
 
 |Model name| MRR|NDCG@1|NDCG@5|NDCG@10|
 | ------ | ------ |------ |------ |------ |
-||DRMM| 0.9627|0.6081|0.7653|0.7917|
+|DRMM| 0.9627|0.6081|0.7653|0.7917|
 |MV-LSTM| 0.9446|0.5344|0.7020|0.7437|
 |ANMM| 0.7748|0.4493|0.5483|0.5537 |
 |DUET| 0.8391|0.4893|0.5505|0.6157|	
@@ -66,10 +79,21 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 ## Reference
 1: ShengZhang, XinZhang, HuiWang, LixiangGuo, andShanshanLiu. [n.d.]. MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
 
-2:YuanheTian, WeichengMa, FeiXia, andYanSong. 2019. ChiMed:AChinese Medical Corpus for Question Answering.In Proceedings of the 18th BioNLP Workshop and Shared Task.Association for Computational Linguistics,Florence,Italy, 250–260. https://doi.org/10.18653/v1/W19-5027 
+2: YuanheTian, WeichengMa, FeiXia, andYanSong. 2019. ChiMed:AChinese Medical Corpus for Question Answering.In Proceedings of the 18th BioNLP Workshop and Shared Task.Association for Computational Linguistics,Florence,Italy, 250–260. https://doi.org/10.18653/v1/W19-5027 
 
-3:MingZhu, AmanAhuja, WeiWei, and ChandanK.Reddy.2019. A Hierarchical Attention Retrieval Model for Healthcare Question Answering. In The World Wide Web Conference, WWW2019, SanFrancisco, CA, USA, May13-17,2019.2472–2482. https://doi.org/10.1145/3308558.3313699 
+3: MingZhu, AmanAhuja, WeiWei, and ChandanK.Reddy.2019. A Hierarchical Attention Retrieval Model for Healthcare Question Answering. In The World Wide Web Conference, WWW2019, SanFrancisco, CA, USA, May13-17,2019.2472–2482. https://doi.org/10.1145/3308558.3313699 
 
-4:  JiangWang, YangSong, ThomasLeung, ChuckRosenberg, JingbinWang, James Philbin, BoChen, andYingWu.2014. Learning Fine-Grained Image Similarity with Deep Ranking. In 2014 IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2014, Columbus, OH, USA, June 23-28, 2014.1386–1393. https: //doi.org/10.1109/CVPR.2014.180 
+4: JiangWang, YangSong, ThomasLeung, ChuckRosenberg, JingbinWang, James Philbin, BoChen, andYingWu.2014. Learning Fine-Grained Image Similarity with Deep Ranking. In 2014 IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2014, Columbus, OH, USA, June 23-28, 2014.1386–1393. https: //doi.org/10.1109/CVPR.2014.180 
 
+5: JiafengGuo, YixingFan, QingyaoAi, and W.BruceCroft.2016.A Deep Relevance Matching Model for Ad-hocRetrieval.
+
+6:  ShengxianWan, YanyanLan, JiafengGuo,JunXu, LiangPang, and XueqiCheng. [n.d.]. A Deep Architecture for Semantic Matching with Multiple Positional Sentence Representations. ([n.d.]).
+
+7:  YangLiu, QingyaoAi, JiafengGuo, and W.BruceCroft. 2016. aNMM: Ranking Short Answer Texts with Attention-Based Neural Matching Model.Inthe 25th ACM International. 
+
+8: Bhaskar Mitra, Fernando Diaz, and Nick Craswell. [n.d.]. Learning to Match Using Local and Distributed Representations of Text for WebSearch. ([n.d.]). 
+
+9: Chenyan Xiong, Zhuyun Dai, Jamie Callan, Zhiyuan Liu, and Russell Power. [n.d.]. End-to-End Neural Ad-hocRanking with Kernel Pooling. ([n.d.]). 
+
+10: ZhuyunDai, Chenyan Xiong,JamieCal lan, and Zhiyuan Liu.2018.Convolutional Neural Networks for  Soft-MatchingN-Gram sin Ad-hocSearch.InProceedings of the Eleventh ACM International Conference on Web Search and Data Mining, WSDM 2018, Marina Del Rey, CA, USA, February 5-9, 2018.126–134.
 
