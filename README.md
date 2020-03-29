@@ -10,14 +10,13 @@ To create LiCHD-1, we acquired it from a public Chinese medical forum (https://w
 ### Data Cleaning
 By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial dataset (scrape from web), we find that there are many noises in these dataset. We summary five typical noises in Table 1, top half refers to wrong question sample, upper half refers to right question sample (after correction). It's difficult to correct these errors by using template or other automatic methods, because each type has many wrong situations. So we clean our dataset by manually.
 
-| Question Sample | Type |
-| www | SE |
+| Model | Accuracy|
+| ------ | ------ |
 | Bayes+TF-IDF| 0.8572 |
 | Bi-GRU and attention| 0.8069 |
 | Transformer| 0.8343|
 | Transformer+CNN| 0.8354 |
 |Transformer+CNN+BiGRU| 0.8422 |
-
 
 
 ## Reference
