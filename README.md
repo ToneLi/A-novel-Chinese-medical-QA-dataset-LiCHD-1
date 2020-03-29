@@ -34,8 +34,19 @@ We follow the rules about existing QA dataset, such as HealthQA, cMedQA, etc. A 
 	
 * Partially relevant answers: these answers and positive answer have the same disease, but they have not the same question. Otherwise, we also consider: (1) overlapping words; (2) question and answer have the same topic, but they are not positive QA pair. [3] and [4] used such samples in the training progress, it make model have a high discriminative power, as compared to the model use randomly choose negitive sample.
 
+To create a high-quality QA dataset, we hired seven workers, include: undergraduate, graduate, doctor, IT coder. These people are ensured to be very careful, patient and have good Chinese skills. They were intructed to clean the data and generate dataset. In the progress of generating dataset, works were ask to ensure one question at least one positive answer, the number of irrelevant negative answers and  partially relevant answers is greater than 0, one answer have 30 candicate questions (relevant, irrelevant, partially relevant). The statistics of the LiCHD-1 are shown in Table 2.
 
-
+	     	
+| items | Count|
+| ------ | ------ |
+|Number of answers| 27296 |
+|Number of questions|27170 |
+|Number of diseases| 1228 |
+|Average length of questions (in characters)|14.75|
+|Average length of answers (in characters)| 133.80|
+|The size of Trainset|659862 |
+|The size of Testset|82413 |
+|The size of Devset|81661 |
 
 
 ## Reference
