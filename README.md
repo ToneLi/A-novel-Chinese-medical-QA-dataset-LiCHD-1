@@ -17,14 +17,14 @@ By analysing the public Chinese medical QA ( Such as, cMedQA) and our initial da
 |3| 发病持续时间：一年以上| WQ |
 |4| 金锁固精丸，，可以治疗早泄吗，，，，| PE|
 |5| 中医能治疗截瘫吗（h5class=""f12f14mt20""）| WN |
-|right|------|------|
+|right|||
 |1|胸闷气短，感觉憋的上，用力呼气胸痛| SE|
 |2|我这是痔疮还是脱肛？| SR |	
 |3| "----------" |WQ|
 |4| 金锁固精丸可以治疗早泄吗？ | PE |
 |5|中医能治疗截瘫吗？|	WN|
 
-
+Note: Five typical noises in public Chinese medical question answer. SE refers to "segment error", SR refers to "sentence repetition", WQ refers to "wrong question" (delete it), PE refers to "punctuation error", WN refers to "web noise"
 
 ## Reference
 1: ShengZhang, XinZhang, HuiWang, LixiangGuo, andShanshanLiu. [n.d.]. MultiScale Attentive Interaction Networks for Chinese Medical Question Answer Selection. IEEE Access ([n.d.]),1–1. 
