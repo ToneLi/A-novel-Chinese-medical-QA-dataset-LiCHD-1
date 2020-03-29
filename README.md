@@ -1,5 +1,6 @@
 # A-novel-Chinese-medical-QA-dataset-LiCHD-1
-This is a novel Chinese medical QA dataset-(LiCHD-1)
+This is a novel Chinese medical QA dataset-(LiCHD-1), you can obtain it by: https://pan.baidu.com/s/1kT4w5l-TJwvKC6IQCf8djw 
+code: 8guh
 ## Introduction
 
 Data is the soul of model, making a clean dataset needs a lot of time and manpower, but it is worthy. The investigation discovered that there are few of datasets about Chinese medical QA, [1] proposed the first public Chinese medical QA dataset, it is called [cMedQA2](https://github.com/zhangsheng93/cMedQA2). In 2017, the authors released cMedQA1. cMedQA2 is an enhanced version. In cMedQA2, it totally has 108000 questions and 203569 answers. the content in this data is mainly about disease diagnosis. The patients use a sentence to describe their symptom, and then the doctors give the relevent solution. But there are many noises in cMedQA2, we have summarized five main noises in Table1. [2] created a Chinese medical corpus ChiMed in 2019, but it isn't released. It has 46731 questions and 91416 answers. So, based on above problems, we constructed a less noise and public Chinese health question answering dataset, it mainly about the common sense of disease. In the last, 6 models are contrasted based on this dataset by toolkit MatchZoo.
@@ -70,11 +71,9 @@ To create a high-quality QA dataset, we hired seven workers, include: undergradu
 |KNRM| 0.7110|0.3106|0.4595|0.5492|
 |CoNV-KNRM| 0.9044|0.5411|0.6714|0.729|
 
+Note: The code about these models is in the file Baseline_model_MatchZoo
 # Acknowledgement
 Thanks to Zhang Ning, Li Yueyu, Hu Yantian and others for their contributions to the database modification.
-
-
-
 
 
 ## References
